@@ -41,3 +41,4 @@ This code is licensed under the [MIT License](https://opensource.org/licenses/MI
 
 ## Reproducibility & Archival
 This repository is linked to Zenodo to provide a persistent DOI. Please cite this repository and the associated publication when using these scripts.
+https://zenodo.org/badge/1252984816.svg
