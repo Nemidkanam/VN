@@ -1,0 +1,24 @@
+# Load necessary libraries
+library(vegan)
+
+# Load genomic presence/absence matrix (Rows = Isolates, Columns = Genes)
+arg_data <- read.csv("data/NMDS.csv", row.names = 1)
+
+# Load metadata containing environmental grouping factors (e.g., 'source')
+meta <- read.csv("data/NMDS_metadata.csv")
+
+# Using Jaccard distance because genomic profiles are typically binary (presence/absence)
+dist_matrix <- vegdist(arg_data, method = "jaccard", binary = TRUE)
+
+# Permutational Multivariate Analysis of Variance (PERMANOVA)
+permanova_result <- adonis2(dist_matrix ~ source, data = meta, permutations = 999)
+print(permanova_result)
+
+# Homogeneity of Multivariate Dispersions (Beta Diversity Spread)
+
+# Compute distances from individual observations to their group centroids
+dispersion <- betadisper(dist_matrix, meta$source)
+
+# Run permutation test to verify if group variances/spreads are equal
+dispersion_test <- permutest(dispersion, permutations = 999)
+permutest(dispersion)
