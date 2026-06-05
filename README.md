@@ -9,10 +9,12 @@ Visualizes the geographic distribution of study sites.
 * **Key Functionality**: Integrates administrative boundaries, maps study sites, and manages site labels.
 * **Core Libraries**: `sf`, `rnaturalearth`, `rnaturalearthhires`, `ggrepel`.
 
-### 2. NMDS Analysis (Antimicrobial Resistance Genes)
-Analyzes and visualizes differences in antimicrobial resistance gene (ARG) or virulent factor (VF) profiles between sample sources.
-* **Key Functionality**: Calculates Jaccard distance matrices, performs non-metric multidimensional scaling (NMDS) ordination, and visualizes groupings with 95% confidence ellipses.
-* **Core Libraries**: `vegan`, `ggplot2`.
+### 2. Multivariate Resistome & Virulome Analysis (NMDS & PERMANOVA)
+* **Purpose:** Evaluates and statistically validates structural differences in Antimicrobial Resistance Gene (ARG) and Virulence Factor (VF) gene profiles between different sample sources (e.g., cecum vs. retail pork).
+* **Key Functionality:** * Calculates high-dimensional binary distance matrices (Jaccard).
+  * Executes Non-metric Multidimensional Scaling (NMDS) ordinations overlaid with 95% confidence ellipses.
+  * **Statistical Validation:** Formally tests group centroid significance using Permutational Multivariate Analysis of Variance (PERMANOVA / `adonis2`) and tests structural variance disparities via Homogeneity of Multivariate Dispersions (`betadisper`).
+* **Core Libraries:** `vegan`, `ggplot2`
 
 ### 3. ST48 SNP Divergence Heatmap
 Identifies clonal relationships and transmission clusters among ST48 strains.
